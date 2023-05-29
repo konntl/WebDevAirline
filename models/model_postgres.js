@@ -1,8 +1,5 @@
 import pg from "pg";
 import dotenv from "dotenv";
-import nodemailer from "nodemailer"
-import {google} from 'googleapis'
-
 
 dotenv.config();
 
@@ -30,60 +27,11 @@ function getDateXDaysAgo(numOfDays=3,date=new Date()){
         database: process.env.PGDATABASE,
         password: process.env.PGPASSWORD,
         port: process.env.PGPORT,
-     
-      //connectionString:process.env.URI,
-      //ssl:{
-      //    rejectUnauthorized:false
-      //}
+
  })
 
  
-/*const CLIENTID=process.env.CLIENTID;
-const CLIENTSECRET=process.env.CLIENTSECRET;
-const REDIRECTURI=process.env.REDIRECTURI;
-const REFRESHTOKEN=process.env.REFRESHTOKEN; 
 
-
-const oAuth2Client=new google.auth.OAuth2(CLIENTID,CLIENTSECRET,REDIRECTURI);
-oAuth2Client.setCredentials({refresh_token:REFRESHTOKEN});
-
-async function sendEmail(Fname,Lname,email,bookingID,ticketID,from,to,date,time){
-    try{
-        const accessToken=await oAuth2Client.getAccessToken();
-        const transport=nodemailer.createTransport({
-            service:'Gmail',
-            auth:{
-                
-                type:'OAuth2',
-                user:'ready4takeoffinfo@gmail.com',
-                pass:"ready4takeoff1234",
-                clientId:CLIENTID,
-                clientSecret:CLIENTSECRET,
-                refreshToken:REFRESHTOKEN,
-                accessToken:accessToken
-            }
-        })
-        const mailOptions={
-            from:'ready4takeoffinfo@gmail.com',
-            to:`${email}`,
-            subject:'Στοιχεία κράτησης',
-            text:'Στοιχεία - Μην απαντήσετε',
-            html:`<h1>Booking ID:'${bookingID}' για τον/την '${Fname}' '${Lname}' </h1> <br>
-                    <h2>Ticket ID:'${ticketID}'</h2><br>
-                    <h3>Από:'${from}' , Έως:'${to}'</h3><br>
-                    <h4>Ημερομηνία:'${date}' , Ώρα:'${time}'
-                    `
-        }
-        console.log(transport.service,transport.auth,'\n MailOptions',mailOptions)
-
-        const result=await transport.sendMail(mailOptions)
-        return result
-    }catch(error){
-        return error;
-    }
-
- };
-*/
 async function connect() {
     try {
         const client = await pool.connect();
@@ -158,7 +106,7 @@ async function createTicketPassengerRelation(userID,data/*Object*/,callback){
         let connectUserandBooking=`INSERT INTO "Reserves"("userID","bookingID")VALUES('${userID}','${bID}');`;
         await client.query(connectUserandBooking);
 
-        //sendEmail(passenger.Fname,passenger.Lname,passenger.Email,bID,ticketID,resF.rows[0].startAirportID,resF.rows[0].finishAirportID,resF.rows[0].departureDate,resF.rows[0].departureTime).then(result=> console.log('Email sent...',result)).catch((error)=>console.log(error.message));
+       
         
         }
         await client.release();
