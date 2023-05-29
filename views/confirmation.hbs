@@ -1,0 +1,14 @@
+<div class="mainbg">
+<div class="whitebox">
+    <h1>Η κράτηση σας ολοκληρώθηκε.</h1>
+    <p>Καλό ταξίδι.</p>   
+</div>
+</div>
+
+<script>
+    setTimeout(function(){
+        app.get('/',function(req,res,next){
+            res.render('home', {layout:'main', user: req.session.passport.user})
+        })
+    },3000);
+</script>

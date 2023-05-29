@@ -1,0 +1,19 @@
+<div class="mainbg">
+<div class="whitebox">
+    <div class="title">
+      <h1>Προφίλ</h1>
+    </div>
+    <div class="profile-info">
+        <div class="profile-picture">
+      <img src="imgs/defaultprofile.png" alt="Profile Picture">
+      </div>
+      <div class="info">
+        {{#user}}
+        <p><strong>Ονοματεπώνυμο:</strong> {{fname}} {{lname}}</p>
+        <p><strong>Email:</strong> {{email}}</p>
+        <p><strong>Τηλέφωνο:</strong> {{cellphone}}</p>
+        {{/user}}
+      </div>
+    </div>
+  </div>
+</div>

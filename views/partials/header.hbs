@@ -1,0 +1,21 @@
+<header class="main-header">
+    <div class="top-header">
+        <div class="logo">
+            <img src="imgs/ready4takeoff-high-resolution-logo-white-on-transparent-background.png" alt="Airline Logo" height="30">
+        </div>
+        {{#if user}}
+            <div class="profile">
+                <img src="imgs/defaultprofile.png" alt="Profile Picture">
+                <div class="dropdown">
+                    <a href="/profile">Προφίλ</a>
+                    <a href="/bookings">Κρατήσεις</a>
+                    <a href="/sign-out">Έξοδος</a>
+                </div>
+            </div>
+        {{else}}
+            <div class="login">
+                <a href="/sign-in">Σύνδεση/Εγγραφή</a>
+            </div>
+        {{/if}}
+    </div>
+</header>

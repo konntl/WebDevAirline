@@ -1,0 +1,43 @@
+<div class="mainbg">
+<div class="whitebox">
+  <div class="title">
+      <h1>Αναζήτηση Αεροπορικών</h1>
+  </div>
+  <form method="GET" class="main-form" action="/flights">
+      <label for="departure">Από: <input type="text" name="departure" id="departure" placeholder="Atlanta"/></label>
+      <label for="arrival">Προς: <input type="text" name="arrival" id="arrival" placeholder="Amsterdam"/></label>
+      <label for="depart-date">Αναχώρηση: <input type="date" name="depart-date" id="depart-date" /></label>
+      <label for="return-date">Επιστροφή: <input type="date" name="return-date" id="return-date" /></label>
+      <div class="form-checkbox">
+        <input type="checkbox" id="oneway" name="return-value" value="Χωρίς επιστροφή">
+        <label for="return-value">Χωρίς Επιστροφή</label>
+      </div>
+      <div class="passenger-input">
+          <div class="passenger-dropdown">
+            <button type="Button" id="passengerToggle" class="dropdown-toggle">Επιλογή</button>
+            <div id="passengerDropdownContent" class="dropdown-content">
+              <div>
+                <span>Ενήλικοι:</span>
+                <div class="passenger-buttons">
+                  <button type="Button" onclick="decrementPassenger('adult')">-</button>
+                  <input type="text" class="psngr-number" id="num0" min="0" value="0" readonly>
+                  <button type="Button" onclick="incrementPassenger('adult')">+</button>
+                </div>
+              </div>
+              <div>
+                <span>Παιδιά:</span>
+                <div class="passenger-buttons">
+                  <button type="Button" onclick="decrementPassenger('child')">-</button>
+                  <input type="text" class="psngr-number" id="num1" min="0" value="0" readonly>
+                  <button type="Button" onclick="incrementPassenger('child')">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <button type="submit">Αναζήτηση</button>
+  </form>
+</div>
+</div>
+
+<script src="scripts/homeScript.js"></script>

@@ -1,0 +1,128 @@
+<div class="mainbg">
+<div class="whitebox">
+<div class="flightInfoSticky">
+    {{#formData}}
+        <div>
+            {{departure}} - {{arrival}}
+        </div>
+        <div>
+            Αναχώρηση: {{depart-date}}
+            Επιστροφή: {{return-date}}
+        </div>
+        <div>
+            {{passengers}}
+        </div>
+        <div>
+        </div>
+    {{/formData}}
+    </div>
+    <form id="Passenger-Form" action="/flights/passengers/confirmation" method="POST">
+        {{#formData}}
+            <input type="hidden" name="dptFlightID" value="{{dptFlightID}}" />
+            <input type="hidden" name="arrFlightID" value="{{arrFlightID}}" />
+        {{/formData}}
+        {{#each passengerCount}}
+        <div class="container">
+            <div class="row" style="margin-left:10%;">
+                <div class="col-12 col-sm-4">
+                    <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+                            width:50vw;
+                            height:30vw;
+                            margin-top: 50px;
+                            margin-bottom:3vw;
+                            
+                            
+                            background: hsla(0, 0%, 100%, 0.8);
+                            backdrop-filter: blur(90px);
+                            border-radius: 16px;
+                            ">
+                        <div class="card-body py-5 px-md-1">
+                            <div class="row d-flex justify-content-center" >
+                                <div class="col-lg-8">
+                                    <h2 class="fw-bold mb-5">Passenger Info</h2>
+
+                                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                                    <div class="row">
+                                        <div class="col-md-4 mb-4">
+                                            <div class="form-outline">
+                                                <input type="text" id="Fname{{@key}}" class="form-control" name="Fname" value="">
+                                                <label class="form-label" for="Fname{{@key}}">First name</label>
+                                            </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <div class="form-outline">
+                                            <input type="text" id="Mname{{@key}}" class="form-control" name="Mname" value="">
+                                            <label class="form-label" for="Mname{{@key}}">Middle name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <div class="form-outline">
+                                            <input type="text" id="Lname{{@key}}" class="form-control" name="Lname" value="">
+                                            <label class="form-label" for="Lname{{@key}}">Last name</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="Email{{@key}}" class="form-control" name="Email" value="">
+                                            <label class="form-label" for="Email{{@key}}">Email address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline mb-4">
+                                            <input type="cellphone" id="Cellphone{{@key}}" class="form-control" name="Cellphone"
+                                                value="">
+                                            <label class="form-label" for="Cellphone{{@key}}">Cellphone </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="gender{{@key}}">Gender</label><br>
+                                            <div>
+                                                <select name="gender" id="gender{{@key}}" style="border-radius:5px;margin-top:0.3vw;">
+                                                    <option value="none" selected>Gender</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="ID-Type{{@key}}">Identification Type</label><br>
+                                        <div>
+                                            <select name="ID-Type" id="ID-Type{{@key}}" style="border-radius:5px;margin-top:0.3vw;">
+                                                <option value="none" selected>ID Type</option>
+                                                <option value="Passport">Passport</option>
+                                                <option value="State-Issued ID Card">State-Issued ID Card</option>
+                                                <option value="Military-Issued ID Card">Military-Issued ID Card</option>
+                                            </select>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <!-- Submit button -->
+    <div class="d-flex justify-content-center button-wrapper" style="margin-left:15%;">
+        <button type="submit" class="btn btn-primary btn-block mb-3" style="margin-left:-25%;width:45%;height:3vw;text-align:center">
+            Ολοκλήρωση Κράτησης
+        </button>
+    </div>
+</form>
+</div>
+</div>

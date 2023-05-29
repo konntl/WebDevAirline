@@ -1,0 +1,26 @@
+<div class="mainbg">
+<div class = "whitebox">
+    <h1>Αίτηση εγγραφής</h1>
+    <p>Παρακαλώ συμπληρώστε τη φόρμα με τα απαραίτητα στοιχεία.</p>
+    <form id="signUP-form" method="POST" action="/sign-up">
+    <fieldset>
+        <label for="Fname">Όνομα: <input id="Fname" name="Fname" type="text" required /></label>
+        <label for="Lname">Επίθετο: <input id="Lname" name="Lname" type="text" required /></label>
+        <label for="Email">Email: <input id="Email" name="Email" type="email" required /></label>
+        <label for="Cellphone">Κινητό: <input id="Cellphone" name="Cellphone" type="cellphone" required /></label>
+        <label for="Username">Username: <input id="Username" name="Username" type="username" required></label>
+        <label for="Password">Συνθηματικό: <input id="Password" name="Password" type="password" pattern="[a-z0-5]{8,16}" required /></label>
+    </fieldset>
+    <fieldset>
+        <label for="Newsletter">
+        <input id="Newsletter" type="checkbox" required name="Newsletter" class="inline" /> Έχω διαβάσει και αποδέχομαι τους 
+            <a href="">όρους χρήσης και την πολιτική απορρήτου.</a>
+        </label>
+    </fieldset>
+    <fieldset>
+        <label>Έχετε ήδη λογαριασμό; <a href="/sign-in">Συνδεθείτε</a></label>
+    </fieldset>
+    <input type="submit" value="Υποβολή" />
+    </form>
+</div>
+</div>

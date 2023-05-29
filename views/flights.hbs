@@ -1,0 +1,76 @@
+<div class="mainbg">
+<div class="whitebox">
+    <div class="formInfo">
+        {{#formData}}
+            <span class="location">{{departure}}</span>
+            <span class="location">&nbsp;-&nbsp;</span>
+            <span class="location">{{arrival}}</span>
+            <button class="date">{{depart-date}}</button>
+        {{/formData}}
+    </div>
+    <form action="/flights/passengers" method="GET">
+        {{#formData}}
+            <input type="hidden" name="departure" value="{{departure}}" />
+            <input type="hidden" name="departure" value="{{arrival}}" />
+            <input type="hidden" name="departure" value="{{depart-date}}" />
+            <input type="hidden" name="departure" value="{{return-date}}" />
+            <input type="hidden" name="departure" value="{{passengers}}" />
+        {{/formData}}
+    <div class="depFlightsContainer">
+        {{#each departFlights}}
+        <div id="flight{{flightID}}">
+            <div class="flightSelection">{{Company}}</div>
+            <div class="flightDepart">
+                <span class="flightTime">{{departureTime}}</span>
+                <span class="flghtLocations">{{begin}}</span>
+            </div>
+            <div><span>&nbsp;-&nbsp;</span></div>
+            <div class="flightArrive">
+                <span class="flightTime">{{arrivalTime}}</span>
+                <span class="flightLocations">{{end}}</span>
+            </div>
+            <div class="flightPriceInfo">
+                {{Cost}}
+            </div>
+            <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{flightID}}" name="dptFlightID" value="{{flightID}}">
+            <label for="btn-flight{{flightID}}" class="flightSelectBtn">Επιλογή</label>       
+        </div>
+        {{/each}}
+    </div>
+        {{#if returnFlights}}
+            <div class="formInfo">
+                {{#formData}}
+                    <span class="location">{{arrival}}</span>
+                    <span class="location">&nbsp;-&nbsp;</span>
+                    <span class="location">{{departure}}</span>
+                    <button class="date">{{return-date}}</buttton>
+                {{/formData}}                
+            </div>
+            <div class="retFlightsContainer">
+                {{#each returnFlights}}
+                <div id="flight{{flightID}}">
+                    <div class="flightSelection">{{flightID}}</div>
+                    <div class="flightDepart">
+                        <span class="flightTime">{{departureTime}}</span>
+                        <span class="flightLocations">{{begin}}</span>
+                    </div>
+                    <div><span>&nbsp;-&nbsp;</span></div>
+                    <div class="flightArrive">
+                        <span class="flightTime">{{arrivalTime}}</span>
+                        <span class="flightLocations">{{end}}</span>
+                    </div>
+                    <div class="flightPriceInfo">
+                        {{Cost}}
+                    </div>
+                    <input class="hiddenCheckbox" type="checkbox" id="btn-flight{{flightID}}" name="dptFlightID" value="{{flightID}}">
+                    <label for="btn-flight{{id}}" class="flightSelectBtn">Επιλογή</label>
+                </div>
+                {{/each}}
+            {{/if}}
+            </div>
+    <button class="submitFlightBtn" type="submit">Συνέχεια</button>
+    </form>
+</div>
+</div>
+
+<script scr="/scripts/flightSelect.js"></script>

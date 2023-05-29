@@ -1,0 +1,20 @@
+<div class="mainbg">
+<div class="whitebox">
+  <h1>Οι κρατήσεις μου</h1>
+  <div class="bookingFlex">
+    {{#each bookings}}
+      <div>
+        {{#each this}}
+        <div class="bookingInfo">
+          {{startAirportID}}-{{finishAirportID}}, 
+          <br>
+          {{departureDate}}, {{departureTime}}
+          <br>
+          {{Company}}
+        </div>
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+</div>
+</div>
